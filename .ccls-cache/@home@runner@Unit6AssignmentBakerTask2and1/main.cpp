@@ -8,18 +8,18 @@ Summary:
 #include "accounts.h"
 using namespace std;
 
-void sortArray(int *array);
+void sortArray(int array[], int size);
+void printArray(int array[], int size);
 
 int main() {
   return 0;
 }
 
-void sortArray(int *array) {
+void sortArray(int array[], int size) {
   bool swapped;
-  int n = sizeof(*array) / sizeof(array[0]);
-  for (int i = 0; i < n - 1; i++) {
+  for (int i = 0; i < size - 1; i++) {
         swapped = false;
-        for (int j = 0; j < n - i - 1; j++) {
+        for (int j = 0; j < size - i - 1; j++) {
             if (array[j] < array[j + 1]) {
                 int temp = array[j];
                 array[j] = array[j + 1];
@@ -28,4 +28,14 @@ void sortArray(int *array) {
             }
         } if (!swapped) break;
     }
+}
+
+void printArray(int array[], int size) {
+  for (int i = 0; i < size; i++) {
+    cout << array[i];
+    if (i != size - 1) {
+      cout << ", ";
+    }
+  }
+  cout << endl;
 }
